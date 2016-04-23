@@ -5,11 +5,14 @@
 
 using namespace std;
 
-
 int main()
 {
 	setlocale(LC_ALL, "Russian");
+
 	LIB::Library lib;
+	while (true)
+		lib.translite();
+
 	system("pause");
 	return 0;
 }
