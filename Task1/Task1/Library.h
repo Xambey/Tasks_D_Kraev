@@ -4,7 +4,7 @@
 #include <vector>
 #include "Rus.h"
 
-
+char bufRus[256];
 using namespace std;
 namespace LIB
 {
