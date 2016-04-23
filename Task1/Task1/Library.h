@@ -5,15 +5,21 @@
 #include "Rus.h"
 
 char bufRus[256];
+
 using namespace std;
 namespace LIB
 {
+	struct Word
+	{
+		string en, ru;
+	};
 
 	class Library
 	{
-		vector <string> rus,eng; //buffers
-		int n; //count words
+		vector <Word> dict;
 	public:
 		Library();
+
+		void translite();
 	};
 }
