@@ -1,37 +1,40 @@
 #include "Library.h"
 using LIB::Library;
 
-Library::Library() 
+Library::Library()
 {
-	cout << "Ââåäèòå êîëè÷åñòâî ñëîâ, äëÿ äîáàâëåíèÿ â ñëîâàðü: ";
+	int n;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»Ð¾Ð², Ð´Ð»Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð² ÑÐ»Ð¾Ð²Ð°Ñ€ÑŒ: ";
 	cin >> n;
-	for (int i = 0; i < n; i++) {
-		cout << "Ââåäèòå ñëîâî íà àíãëèéñêîì: ";
-		cin.ignore();
-		string r, e,t;
-		getline(cin, t);
-		cin.ignore();
-		cout << "Ââåäèòå ïåðåâîä ñëîâà: ";
-		e = Rus(t.c_str());
-		t.clear();
-		getline(cin, t);
-		r = Rus(t.c_str());
-		rus.push_back(r);
-		eng.push_back(e);
-		cout << endl;
-	}
-	string str;
-	cout << "Ââåäèòå ñëîâî äëÿ ïîèñêà: ";
 	cin.ignore();
+
+	for (int i = 0; i < n; i++)
+	{
+		Word word;
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»Ð¾Ð²Ð¾ Ð½Ð° Ð°Ð½Ð³Ð»Ð¸Ð¹ÑÐºÐ¾Ð¼: ";
+		string t;
+		getline(cin, t);
+		word.en = t.c_str();
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€ÐµÐ²Ð¾Ð´ ÑÐ»Ð¾Ð²Ð°: ";
+		getline(cin, t);
+		word.ru = Rus(t.c_str());
+		cout << endl;
+		dict.push_back(word);
+	}
+}
+
+void Library::translite()
+{
+	string str;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»Ð¾Ð²Ð¾ Ð´Ð»Ñ Ð¿Ð¾Ð¸ÑÐºÐ°: ";
 	getline(cin, str);
-	bool f = false;
-	for (int i = 0; i < eng.size(); i++) {
-		if (eng.at(i) == str) {
-			cout << "Ïåðåâîä: " << rus.at(i);
-			f = true;
+
+	for (auto i = dict.begin(); i != dict.end(); i++)
+	{
+		if (i->en == str) {
+			cout << "ÐŸÐµÑ€ÐµÐ²Ð¾Ð´: " << i->ru << endl;
+			return;
 		}
 	}
-	if (!f) {
-		cout << endl << " Ñëîâî íå íàéäåíî! ";
-	}
+	cout << " Ð¡Ð»Ð¾Ð²Ð¾ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾! " << endl;
 }
