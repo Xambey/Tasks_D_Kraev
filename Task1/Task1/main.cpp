@@ -10,5 +10,6 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	LIB::Library lib;
+	system("pause");
 	return 0;
 }

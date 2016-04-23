@@ -20,4 +20,18 @@ Library::Library()
 		eng.push_back(e);
 		cout << endl;
 	}
+	string str;
+	cout << "Введите слово для поиска: ";
+	cin.ignore();
+	getline(cin, str);
+	bool f = false;
+	for (int i = 0; i < eng.size(); i++) {
+		if (eng.at(i) == str) {
+			cout << "Перевод: " << rus.at(i);
+			f = true;
+		}
+	}
+	if (!f) {
+		cout << endl << " Слово не найдено! ";
+	}
 }
