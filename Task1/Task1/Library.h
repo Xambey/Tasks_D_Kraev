@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Rus.h"
+extern char bufRus[256];
 
 using namespace std;
 namespace LIB
@@ -18,6 +19,6 @@ namespace LIB
 	public:
 		Library();
 
-		void translite();
+		void translate();
 	};
 }

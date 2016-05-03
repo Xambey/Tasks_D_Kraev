@@ -9,9 +9,13 @@ int main()
 	Cards* ptr = NULL;
 	while (true)
 	{
+		system("cls");
 		cout << endl;
+		cout << "       МЕНЮ       " << endl;
 		cout << "1) Сформировать картотеку " << endl;
 		cout << "2) Отобразить картотеку " << endl;
+		cout << "3) Ввод заявки на обмен " << endl;
+		cout << "4) Выход "<< endl;
 		cout << endl;
 		cout << "Введите номер: ";
 		cin >> n;
@@ -22,6 +26,10 @@ int main()
 		{
 			cout << "Введите количество карточек: ";
 			cin >> count_cards;
+			if (count_cards <= 0) {
+				cout << endl << "Введите корректное значение! " << endl;
+				break;
+			}
 			int countRooms, Floor, Area;
 			string Address;
 			cout << "Карта номер " << 1 << endl;
@@ -35,8 +43,8 @@ int main()
 			cin.ignore();
 			getline(cin, Address);
 			cout << endl;
-			Cards list(1, countRooms, Floor, Area, Address);
-			ptr = list.create_list(count_cards - 1);
+			//Cards list(1, countRooms, Floor, Area, Address);
+			ptr = new Cards(1, count_cards, countRooms, Floor, Area, Address);
 			break;
 		}
 		case 2:
@@ -46,12 +54,41 @@ int main()
 				break;
 			}
 			cout << "Картотека: " << endl;
-			ptr->print_list(ptr);
+			ptr->print_list();
 			break;
 		}
-		default:
+		case 3:
+		{
+			if (!ptr) {
+				cout << "Картотека не создана!";
+				break;
+			}
+			int countRooms,Floor,Area;
+			string Address;
+			cout << endl << "Введите данные вашей квартиры..." << endl;
+			cout << "Введите число комнат: ";
+			cin >> countRooms;
+			cout << "Введите этаж: ";
+			cin >> Floor;
+			cout << "Введите площадь: ";
+			cin >> Area;
+			cout << "Введите адрес: ";
+			cin.ignore();
+			getline(cin, Address);
+			cout << endl;
+			cout << endl << "Поиск квартиры для обмена..." << endl;
+			ptr->application(new Cards(count_cards, countRooms, Floor, Area, Address));
 			break;
 		}
+		case 4:
+			return EXIT_SUCCESS;
+		default: 
+		{
+			cout << endl << "Введите корректное значение! " << endl;
+			break;
+		}
+		}
+		cout << endl;
+		system("pause");
 	}
-	return 0;
 }

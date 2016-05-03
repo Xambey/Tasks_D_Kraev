@@ -4,6 +4,7 @@
 #include "Republic.h"
 #include "Monarchy.h"
 #include <clocale>
+
 State* State::begin = NULL;
 using namespace std;
 

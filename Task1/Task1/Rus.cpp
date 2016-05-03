@@ -1,8 +1,7 @@
 #include "Rus.h"
-
+char bufRus[256];
 string Rus(const char * text)
 {
-	char bufRus[256];
 	OemToChar(text, bufRus);
 	string str(bufRus);
 	return str;

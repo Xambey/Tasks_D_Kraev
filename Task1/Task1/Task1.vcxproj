@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClCompile Include="Library.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library.h" />

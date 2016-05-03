@@ -11,7 +11,7 @@ int main()
 
 	LIB::Library lib;
 	while (true)
-		lib.translite();
+		lib.translate();
 
 	system("pause");
 	return 0;

@@ -110,10 +110,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Complex.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Сountry.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Complex.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="Сountry.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
